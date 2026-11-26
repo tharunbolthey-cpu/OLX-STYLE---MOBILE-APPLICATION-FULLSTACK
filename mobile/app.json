@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Marketly",
+    "slug": "marketly",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "scheme": "marketly",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-image-picker",
+      "expo-location"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.marketly.app",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Marketly uses your photos so you can add images to listings.",
+        "NSLocationWhenInUseUsageDescription": "Marketly can use your location to help you enter a listing location."
+      }
+    },
+    "android": {
+      "package": "com.marketly.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "READ_MEDIA_IMAGES",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

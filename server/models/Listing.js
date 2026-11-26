@@ -1,0 +1,4 @@
+const mongoose=require('mongoose');
+const schema=new mongoose.Schema({title:{type:String,required:true,trim:true,maxlength:100},description:{type:String,required:true,maxlength:5000},price:{type:Number,required:true,min:0},category:{type:mongoose.Schema.Types.ObjectId,ref:'Category',required:true},subcategory:{type:String,default:''},images:{type:[String],validate:v=>v.length<=8},condition:{type:String,enum:['new','like-new','good','fair'],required:true},location:{type:String,required:true,trim:true},seller:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true,index:true},status:{type:String,enum:['active','sold','pending','rejected','expired'],default:'pending',index:true},featured:{type:Boolean,default:false},views:{type:Number,default:0},expiresAt:{type:Date}},{timestamps:true});
+schema.index({title:'text',description:'text'}); schema.index({category:1,subcategory:1,location:1,price:1,createdAt:-1});
+module.exports=mongoose.model('Listing',schema);
